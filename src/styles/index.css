@@ -1,67 +1,73 @@
 .bodyDiv {
-    border: 2px solid black;
-    margin: auto;
-    margin-top: 1rem;
-    width: 55%;
-    background-color: #dee2de;
+  border: 2px solid black;
+  margin: auto;
+  margin-top: 1rem;
+  width: 55%;
+  background-color: #dee2de;
 }
 
 .titleDiv {
-    display: flex;
-    align-items: center;
-    margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
 }
 
-
 .title {
-    text-align: center;
-    border: 2px solid green;
-    width: 50%;
-    margin: auto;
-    background-color: rgb(212, 220, 212);
+  text-align: center;
+  border: 2px solid green;
+  width: 50%;
+  margin: auto;
+  background-color: rgb(212, 220, 212);
 }
 
 .list {
-    text-align: center;
-    margin-top: 3rem;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
+  text-align: center;
+  margin-top: 3rem;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .valueAttribute {
-    text-align: justify;
-    display: flex;
-    justify-content: start;
-    width: 100%;
-    margin-left: 2rem;
-    margin-top: 8px;
-
-
+  text-align: justify;
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  margin-left: 2rem;
+  margin-top: 8px;
 }
 
 .xButton {
-    text-align: end;
-    margin-right: 2rem;
-    margin-top: 8px;
+  text-align: end;
+  margin-right: 2rem;
+  margin-top: 8px;
 }
 
 .xButton:hover {
-    color: rgb(4, 192, 4);
+  color: rgb(4, 192, 4);
 }
 
 .inputsFormat:hover {
-    background-color: rgba(156, 201, 152, 0.854);
+  background-color: rgba(156, 201, 152, 0.854);
 }
 
 .inputsFormat {
-    border: 2px solid black;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .listLength {
-    justify-content: start;
-    padding-left: 1rem;
+  justify-content: start;
+  padding-left: 1rem;
+  display: flex;
+  text-align: start;
+}
+
+.clearButton {
+  margin-left: auto;
+  text-align: end;
+  justify-content: end;
+  padding-right: 1rem;
 }
