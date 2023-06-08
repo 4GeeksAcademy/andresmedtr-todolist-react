@@ -1,4 +1,3 @@
-import { array } from "prop-types";
 import React, { useEffect, useState } from "react";
 
 //create your first component
@@ -43,11 +42,7 @@ const Home = () => {
   // UPDATING THE LIST
   const submitValue = () => {
     const newTodo = { label: inputValue, done: false };
-    // const newTodoList = [...arrayValue, newTodo];
-    // console.log(newTodo, "This is the current input");
-    // console.log(newTodoList, "Updated list with the input");
     setArrayValue([newTodo, ...arrayValue]);
-    // console.log(arrayValue, "Set value already done");
     setInputValue("");
   };
 
@@ -70,15 +65,49 @@ const Home = () => {
   };
   // CLEARING THE LIST
   const clearList = () => {
-    setArrayValue([]);
+    let requestOptions = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(arrayValue),
+    };
+    try {
+      fetch(
+        "http://assets.breatheco.de/apis/fake/todos/user/andresmedtr",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((data) => console.log(data, "this is the data"));
+    } catch (error) {
+      console.error("Error: ", error);
+    }
   };
 
-  // USE EFFECT HOOK METHOD TO USE THE API
-  useEffect(() => {
+  // USE EFFECT TO FETCH THE LIST
+  useEffect(async () => {
+    var requestOptions = {
+      method: "POST",
+      body: JSON.stringify([
+        { label: "Make the bed", done: false },
+        { label: "Walk the dog", done: false },
+        { label: "Do the replits", done: false },
+      ]),
+      headers: { "Content-type": "application/json" },
+    };
+    try {
+      const response = await fetch(
+        "http://assets.breatheco.de/apis/fake/todos/user/andresmedtr",
+        requestOptions
+      );
+      const data = await response.json();
+      console.log("Data:", data);
+    } catch (error) {
+      console.log("Error:", error);
+    }
     fetchTodoList();
+    setArrayValue([]);
   }, []);
 
-  //
+  // USE EFFECT TO UPDATE THE LIST
   useEffect(() => {
     updateTodoList();
     console.log("Current array value:", arrayValue);
@@ -140,7 +169,7 @@ const Home = () => {
             className="clearButton"
             type="button"
             onClick={() => {
-              clearList();
+              clearList(setArrayValue([]));
             }}>
             Delete list
           </span>
